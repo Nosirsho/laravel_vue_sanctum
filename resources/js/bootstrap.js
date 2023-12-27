@@ -7,10 +7,24 @@ import 'bootstrap';
  */
 
 import axios from 'axios';
+import router from "./router.js";
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 axios.defaults.withCredentials = true;
+
+// window.axios.interceptors.response.use(config=>{},err=>{
+//     console.log('window.axios.interceptors.response.use');
+//     if(err.response.status===401 || err.response.status===401) {
+//         console.log('err.response.status === 401 || err.response.status === 401');
+//         const token = localStorage.getItem('x_xsrf_token')
+//         if(token){
+//             console.log('token');
+//             localStorage.removeItem('x_xsrf_token')
+//         }
+//         router.push({name: 'user.login'})
+//     }
+// })
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
