@@ -15,19 +15,22 @@
 <script>
 export default {
     name: "Login",
-    data(){
-      return {
-          email: null,
-          password: null
-      }
+    data() {
+        return {
+            email: null,
+            password: null
+        }
     },
 
     methods: {
-        login(){
+        login() {
             axios.get('/sanctum/csrf-cookie').then(response => {
-                axios.post('/login',{email: this.email, password: this.password})
-                    .then(res=>{
+                axios.post('/login', {email: this.email, password: this.password})
+                    .then(res => {
                         console.log(res);
+                    })
+                    .catch(err => {
+                        console.log(err.response);
                     })
             });
 
